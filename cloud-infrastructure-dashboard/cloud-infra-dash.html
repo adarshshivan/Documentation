@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Infrastructure Dashboard - Documentation</title>
+  <style>
+    /* =============== GLOBAL =============== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #e0e0e0;
+      display: flex;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+
+    body.light {
+      background: #f4f4f9;
+      color: #222;
+    }
+
+    a {
+      color: #00b7ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* =============== SIDEBAR =============== */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 2rem 1rem;
+      position: fixed;
+      left: 0;
+      top: 0;
+      overflow-y: auto;
+      border-right: 2px solid rgba(255,255,255,0.1);
+      transition: background 0.4s ease;
+    }
+
+    .sidebar.light {
+      background: #ffffff;
+      border-right: 1px solid #ddd;
+    }
+
+    .sidebar h2 {
+      color: #00d9ff;
+      margin-bottom: 1rem;
+    }
+
+    .nav-links {
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin: 0.75rem 0;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      color: inherit;
+    }
+
+    /* =============== CONTENT AREA =============== */
+    .content {
+      margin-left: 270px;
+      padding: 2rem 3rem;
+      flex: 1;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2rem 3rem;
+      box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+      backdrop-filter: blur(12px);
+    }
+
+    body.light .container {
+      background: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2, h3 {
+      color: #00d9ff;
+    }
+
+    body.light h1, body.light h2, body.light h3 {
+      color: #0077ff;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      border-left: 4px solid #00d9ff;
+      padding-left: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* =============== BUTTONS =============== */
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #00d9ff, #0077ff);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00d9ff;
+    }
+
+    /* =============== CODE BLOCKS =============== */
+    .code {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-family: monospace;
+      color: #80ffea;
+      overflow-x: auto;
+    }
+
+    body.light .code {
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    /* =============== SCREENSHOTS =============== */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .screenshots img {
+      width: 100%;
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+
+    /* =============== FOOTER & TOGGLE =============== */
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      color: #aaa;
+    }
+
+    .toggle-btn {
+      background: transparent;
+      border: 2px solid #00d9ff;
+      color: #00d9ff;
+      border-radius: 50px;
+      padding: 0.4rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: #00d9ff;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <h2>📖 Docs Menu</h2>
+    <ul class="nav-links">
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#techstack">Tech Stack</a></li>
+      <li><a href="#steps">Implementation Steps</a></li>
+      <li><a href="#screenshots">Screenshots</a></li>
+      <li><a href="#references">References</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+    <button class="toggle-btn" id="toggleMode">☀️ Light Mode</button>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+    <div class="container">
+      <h1>☁️ Cloud Infrastructure Dashboard - Documentation</h1>
+      <p><strong>Author:</strong> Adarsh Shivan</p>
+      <p><strong>Part of:</strong> CloudOps Suite</p>
+
+      <div class="buttons">
+        <a href="https://cloud-infrastructure-dashboard.vercel.app/" target="_blank" class="btn">🌐 Live Demo</a>
+        <a href="https://github.com/adarshshivan/cloud-infrastructure-dashboard" target="_blank" class="btn">💻 Frontend Code</a>
+        <a href="https://github.com/adarshshivan/cloud-infrastructure-dashboard-backend" target="_blank" class="btn">🧠 Backend Code</a>
+        <a href="https://adarshshivan.github.io" target="_blank" class="btn">🏠 Portfolio</a>
+      </div>
+
+      <section id="overview">
+        <h2>📘 Overview</h2>
+        <p>
+          The <strong>Cloud Infrastructure Dashboard</strong> is a demonstration project that visualizes real AWS data 
+          using a custom-built backend and an interactive dashboard hosted on <strong>Vercel</strong>. 
+          It bridges <em>cloud operations, automation, and frontend visualization</em>.
+        </p>
+      </section>
+
+      <section id="architecture">
+        <h2>🧩 Architecture</h2>
+        <div class="code">
+AWS Resources (EC2, S3)
+  ↓
+AWS CLI + Bash Scripts
+  ↓
+Python Parser → JSON
+  ↓
+Frontend Dashboard (HTML/CSS/JS)
+  ↓
+Vercel Deployment
+        </div>
+      </section>
+
+      <section id="techstack">
+        <h2>⚙️ Tech Stack</h2>
+        <ul>
+          <li><strong>Frontend:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Backend:</strong> Python, AWS CLI, Bash</li>
+          <li><strong>Cloud Platform:</strong> AWS (EC2, S3, IAM)</li>
+          <li><strong>Deployment:</strong> Vercel</li>
+          <li><strong>Version Control:</strong> Git & GitHub</li>
+          <li><strong>Environment:</strong> Linux Terminal</li>
+        </ul>
+      </section>
+
+      <section id="steps">
+        <h2>🧾 Implementation Steps</h2>
+
+        <h3>Step 1 – AWS Setup</h3>
+        <p>Create an IAM user with EC2 read-only and S3 full access, and configure AWS CLI:</p>
+        <div class="code">aws configure</div>
+
+        <h3>Step 2 – Data Extraction</h3>
+        <div class="code">
+aws ec2 describe-instances > ec2_data.json
+aws s3 ls > s3_buckets.txt
+        </div>
+
+        <h3>Step 3 – Data Conversion</h3>
+        <p>Python script to convert AWS CLI outputs into clean JSON format.</p>
+
+        <h3>Step 4 – Frontend Display</h3>
+        <div class="code">
+fetch("data/real_dashboard_data.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("content").innerHTML = `
+      EC2 Instances: ${data.ec2.length}
+      S3 Buckets: ${data.s3.length}
+    `;
+  });
+        </div>
+
+        <h3>Step 5 – Deployment</h3>
+        <p>Deployed on <strong>Vercel</strong> after linking GitHub repository.</p>
+      </section>
+
+      <section id="screenshots">
+        <h2>📸 Screenshots</h2>
+        <p>21 screenshots covering AWS Console, Bash scripts, JSON outputs, and frontend dashboard.</p>
+        <div class="screenshots">
+          <img src="images/screenshot1.png" alt="Screenshot 1">
+          <img src="images/screenshot2.png" alt="Screenshot 2">
+          <img src="images/screenshot3.png" alt="Screenshot 3">
+        </div>
+      </section>
+
+      <section id="references">
+        <h2>📚 References</h2>
+        <ul>
+          <li><a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure.html" target="_blank">AWS CLI Configuration Guide</a></li>
+          <li><a href="https://vercel.com/docs" target="_blank">Vercel Deployment Docs</a></li>
+          <li><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" target="_blank">AWS IAM Best Practices</a></li>
+        </ul>
+      </section>
+
+      <section id="conclusion">
+        <h2>🏁 Conclusion</h2>
+        <p>
+          The <strong>Cloud Infrastructure Dashboard</strong> integrates AWS, DevOps automation, and web visualization 
+          to demonstrate real-time infrastructure monitoring concepts. 
+          It represents a practical cloud-based mini-project ideal for portfolio presentation.
+        </p>
+      </section>
+
+      <footer>
+        <p>Created by <strong>Adarsh Shivan</strong> | Part of the CloudOps Suite</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById("toggleMode");
+    const body = document.body;
+    const sidebar = document.getElementById("sidebar");
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("light");
+      sidebar.classList.toggle("light");
+      toggleBtn.textContent = body.classList.contains("light") ? "🌙 Dark Mode" : "☀️ Light Mode";
+    });
+  </script>
+</body>
+</html>
